@@ -1,0 +1,301 @@
+/* ==========================================================================
+   CONFIGURAÇÕES GERAIS E PALETA DE CORES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth; /* Deixa a transição do menu suave ao clicar */
+}
+
+:root {
+    --azul-escuro: #1A365D;   /* Cor do oceano profundo e textos principais */
+    --azul-claro: #4A90E2;    /* Detalhes, botões e destaques */
+    --bege-claro: #F7F4EB;    /* Cor de fundo principal (lembra a areia da praia) */
+    --branco: #FFFFFF;        /* Fundo de seções específicas e cards */
+    --texto-escuro: #2C3E50;  /* Cor de leitura confortável */
+}
+
+body {
+    background-color: var(--bege-claro);
+    color: var(--texto-escuro);
+    line-height: 1.6;
+}
+
+/* Reduz o tamanho máximo de containers para não espalhar demais em telas grandes */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+/* ==========================================================================
+   CABEÇALHO (MENU DE NAVEGAÇÃO SUPERIOR)
+   ========================================================================== */
+header {
+    background-color: var(--azul-escuro);
+    position: fixed; /* Deixa o menu sempre visível no topo ao rolar a página */
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+header .logo {
+    color: var(--branco);
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+header .logo span {
+    color: var(--azul-claro);
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+header nav ul li a {
+    color: var(--branco);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+header nav ul li a:hover {
+    color: var(--azul-claro); /* Link muda de cor ao passar o mouse */
+}
+
+/* ==========================================================================
+   BANNER PRINCIPAL (HERO)
+   ========================================================================== */
+.hero {
+    /* Gradiente moderno simulando o horizonte do mar de Outer Banks */
+    background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-claro) 100%);
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--branco);
+    padding: 0 20px;
+    margin-top: 70px; /* Evita que o menu fixo cubra o topo do banner */
+}
+
+.hero-content h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 800;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    font-weight: 300;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Estilo do Botão Principal */
+.btn {
+    display: inline-block;
+    background-color: var(--bege-claro);
+    color: var(--azul-escuro);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.btn:hover {
+    background-color: var(--branco);
+    transform: translateY(-3px); /* Efeito flutuante ao passar o mouse */
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   SEÇÕES GERAIS
+   ========================================================================== */
+h2 {
+    text-align: center;
+    font-size: 32px;
+    color: var(--azul-escuro);
+    margin-bottom: 40px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+/* Linha sutil decorativa abaixo dos títulos h2 */
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: var(--azul-claro);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+.dark-section {
+    background-color: var(--branco); /* Alterna a cor do fundo para quebrar a monotonia */
+}
+
+#sobre p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   CARDS DE DIVISÃO SOCIAL (POGUES VS KOOKS)
+   ========================================================================== */
+.cards-divisao {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap; /* Ajusta em telas de celular */
+    margin-top: 20px;
+}
+
+.card {
+    background-color: var(--bege-claro);
+    border-radius: 12px;
+    padding: 35px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border-top: 5px solid transparent;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.02);
+}
+
+/* Diferenciando Pogues e Kooks pelas bordas superiores */
+.card.pogue {
+    border-top-color: var(--azul-claro);
+}
+
+.card.kook {
+    border-top-color: var(--azul-escuro);
+}
+
+.card h3 {
+    font-size: 24px;
+    color: var(--azul-escuro);
+    margin-bottom: 15px;
+}
+
+/* ==========================================================================
+   GRID DE PERSONAGENS
+   ========================================================================== */
+.grid-personagens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Cria colunas automáticas */
+    gap: 25px;
+}
+
+.personagem {
+    background-color: var(--branco);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+    transition: box-shadow 0.3s ease;
+}
+
+.personagem:hover {
+    box-shadow: 0 6px 15px rgba(74, 144, 226, 0.2); /* Sombra azul clara ao passar o mouse */
+}
+
+.personagem h3 {
+    color: var(--azul-claro);
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+/* ==========================================================================
+   SEÇÃO DOS TESOUROS
+   ========================================================================== */
+#tesouros ul {
+    list-style: none;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#tesouros ul li {
+    background-color: var(--bege-claro);
+    margin-bottom: 15px;
+    padding: 20px;
+    border-left: 4px solid var(--azul-escuro);
+    border-radius: 0 8px 8px 0;
+    font-size: 16px;
+}
+
+#tesouros ul li strong {
+    color: var(--azul-escuro);
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+/* ==========================================================================
+   RODAPÉ
+   ========================================================================== */
+footer {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    margin-top: 40px;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE (Telas menores / Celulares)
+   ========================================================================== */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        gap: 15px;
+    }
+
+    header nav ul {
+        gap: 15px;
+    }
+
+    .hero {
+        margin-top: 110px; /* Aumenta o espaço já que o menu fica mais alto no celular */
+        height: 60vh;
+    }
+
+    .hero-content h1 {
+        font-size: 32px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+}
